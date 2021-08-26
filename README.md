@@ -3,3 +3,4 @@
 
 
 - [X] Criação de uma base de API Spring Boot.
+- [X] Inserção de um modelo de documento HTML.
