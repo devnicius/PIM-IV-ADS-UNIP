@@ -20,3 +20,7 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+
+springBoot {
+    mainClass = 'com.example.gestao_hoteleira'
+}
