@@ -17,6 +17,5 @@ artifacts:
     - build/libs/*.jar
     - scripts/*.sh
     - appspec.yml
-    - ...we will specify CodeDeploy scrips also here...
     #com/mycompany/app/HelloWorld.java, specifying yes will place this file in /HelloWorld.java
   discard-paths: yes
