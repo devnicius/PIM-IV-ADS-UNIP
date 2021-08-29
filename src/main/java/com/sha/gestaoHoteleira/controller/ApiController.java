@@ -1,4 +1,4 @@
-package com.sha.awscodedeploydemo.controller;
+package com.sha.gestaoHoteleira.controller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +15,6 @@ public class ApiController
     @GetMapping("api/health")
     public ResponseEntity<?> healthCheck()
     {
-        return ResponseEntity.ok("It works successfully.");
+        return ResponseEntity.ok("Está funcionando!");
     }
 }
