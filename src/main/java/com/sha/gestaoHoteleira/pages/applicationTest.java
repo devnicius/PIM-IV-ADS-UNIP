@@ -1,4 +1,4 @@
-package com.sha.gestaoHoteleira;
+package com.sha.gestaoHoteleira.pages;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
