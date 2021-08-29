@@ -5,9 +5,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * @author sa
- * @date 6.02.2021
- * @time 14:05
+ * @author Vinicius
+ * @date 28.08.2021
+ * @time 00:00
  */
 @RestController
 public class ApiController
