@@ -21,11 +21,11 @@ public class GestaoHoteleiraApplication {
     CommandLineRunner init(ContactRepository repository) {
         return args -> {
             repository.deleteAll();
-            LongStream.range(1, 2)
+            LongStream.range(1, 3)
                     .mapToObj(i -> {
                         Contact c = new Contact();
-                        c.setName("Contact " + i+10);
-                        c.setEmail("contact" + (i+10) + "@email.com");
+                        c.setName("Contact " + i);
+                        c.setEmail("contact" + i + "@email.com");
                         c.setPhone("(99) 000-000");
                         return c;
                     })
