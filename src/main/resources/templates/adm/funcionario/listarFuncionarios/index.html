@@ -1,0 +1,661 @@
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listar Funcionários</title>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Inter:400,800,900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+    <link rel="stylesheet" href="css/style-calendario.css">
+    <link rel="stylesheet" href="css/style-func-listar.css">
+</head>
+
+<body>
+    <div class=" container">
+        <nav class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 nav-content-area">
+            <a href="#" class="link-item-navbar">
+                <div class="status-pag">on</div>
+                <div>Funcionário</div>
+            </a>
+            <a href="../../produto/cadastrarProduto/index.html" class="link-item-navbar">
+                Produtos
+            </a>
+            <a href="../../../ajuda/emConstrucao.html" class="link-item-navbar">
+                Relatórios
+            </a>
+        </nav>
+
+        <main class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 main-content-area">
+            <h1 class="frame-title">Listar Funcionários</h1>
+            <form class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12 form-new-reserve" action="">
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 col-2 search-number">
+                    <label for="id">
+                        Id
+                    </label>
+                    <div class="form-search">
+                        <input class="search-number-bedroom form-control" title="nº Identificador do funcionário"
+                            alt="Id do funcionário" placeholder="ex: 000" id="id" type="number">
+                        <button type="submit" title="Buscar">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 col-3">
+                    <label for="nome">
+                        Nome
+                    </label>
+                    <div class="form-search">
+                        <input name="nome" class="search-name-guest form-control" title="Nome do funcionário"
+                            alt="Nome do funcionário" placeholder="ex: Samuel Caitano da Silva" id="nome" type="text" spellcheck="true" autocomplete="on">
+                        <button type="submit" title="Buscar">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 col-2">
+                    <label for="sexo">
+                        Sexo
+                        <i class="fas fa-angle-down"></i>
+                    </label>
+                    <div class="form-search">
+                        <select name="sexo" title="Sexo" class="form-control" id="sexo">
+                            <option value="">--</option>
+                            <option value="M">MASCULINO</option>
+                            <option value="F">FEMININO</option>
+                            <option value="O">OUTRO</option>
+                        </select>
+                        <button type="submit" title="Buscar">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 col-3">
+                    <label for="situacaoContrato">
+                        Situação
+                        <i class="fas fa-angle-down"></i>
+                    </label>
+                    <div class="form-search">
+                        <select name="situacaoContrato" id="situacaoContrato" title="Situação do contrato"
+                            alt="Situação do contrato" class="form-control">
+                            <option value="">--</option>
+                            <option value="AC">Ativo</option>
+                            <option value="AL">Demitido</option>
+                            <option value="AM">Afastado</option>
+                        </select>
+                        <button type="submit" title="Buscar">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+                <button class="col-lg-1 col-md-1 col-sm-1 col-xs-1 col-1 button-reserve" type="submit" title="Buscar">
+                    Buscar
+                </button>
+            </form>
+
+            <hr style="height: 5px;">
+            <div class="frame-table">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12 frame-table-reserve">
+                    <table class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12 table-reserve">
+                        <thead>
+                            <td style="width: 80px;" title="Número de Identificação">ID</td>
+                            <td style="width: 250px;" title="Nome do hóspede">Nome</td>
+                            <td style="width: 120px;" title="Data de Nascimento">Data Nasc</td>
+                            <td style="width: 120px;" title="Sexo">Sexo</td>
+                            <td style="width: 200px;" title="Naturalidade">Naturalidade</td>
+                            <td style="width: 150px;" title="Nº Carteira">Nº Carteira</td>
+                            <td style="width: 150px;">RG</td>
+                            <td style="width: 60px;">PcD</td>
+                            <td style="width: 150px;">Salário</td>
+                            <td style="width: 120px;">Situação</td>
+                            <td style="width: 120px;">Data Admis.</td>
+                            <td style="width: 120px;">Data Afasta.</td>
+                            <td style="width: 120px;" title="CEP">CEP</td>
+                            <td style="width: 320px;" title="Rua">Rua</td>
+                            <td style="width: 200px;">Bairro</td>
+                            <td style="width: 280px;" title="Cidade">Cidade</td>
+                            <td style="width: 50px;">UF</td>
+                            <td style="width: 80px;" title="Número">Número</td>
+                            <td style="width: 320px;" title="E-mail">E-mail</td>
+                            <td style="width: 190px;" title="Celular">Telefone</td>
+                        </thead>
+                        <tr>
+                            <td>000001</td>
+                            <td>Samuel Caitano da Silva</td>
+                            <td>23/10/1999</td>
+                            <td>Masculino</td>
+                            <td>Bahia</td>
+                            <td>000000000</td>
+                            <td>000000000</td>
+                            <td>NÃO</td>
+                            <td>2.000,00</td>
+                            <td>Ativo</td>
+                            <td>10-10-2020</td>
+                            <td></td>
+                            <td>14802-020</td>
+                            <td>Avenida Joaquim de Souza Pinheiro</td>
+                            <td>Santa Angelina</td>
+                            <td>Araraquara</td>
+                            <td>SP</td>
+                            <td>1000</td>
+                            <td>smlcaitano@gmail.com</td>
+                            <td>(16) 99779-2512</td>
+                        </tr>
+                        <tr>
+                            <td>000002</td>
+                            <td>Vinicius Silva de Oliveira</td>
+                            <td>03/06/2000</td>
+                            <td>Masculino</td>
+                            <td>São Paulo</td>
+                            <td>000000000</td>
+                            <td>000000000</td>
+                            <td>NÃO</td>
+                            <td>2.000,00</td>
+                            <td>Ativo</td>
+                            <td>10-10-2020</td>
+                            <td></td>
+                            <td>14802-040</td>
+                            <td>Avenida Joaquim de Souza Pinheiro</td>
+                            <td>Santa Angelina</td>
+                            <td>Araraquara</td>
+                            <td>SP</td>
+                            <td>1000</td>
+                            <td>smlcaitano@gmail.com</td>
+                            <td>(16) 99779-2512</td>
+                        </tr>
+                        <tr>
+                            <td>000003</td>
+                            <td>Kaun Tulio</td>
+                            <td>15/08/1998</td>
+                            <td>Masculino</td>
+                            <td>São Paulo</td>
+                            <td>000000000</td>
+                            <td>000000000</td>
+                            <td>NÃO</td>
+                            <td>2.500,00</td>
+                            <td>Ativo</td>
+                            <td>10-10-2020</td>
+                            <td></td>
+                            <td>14802-020</td>
+                            <td>Avenida Joaquim de Souza Pinheiro</td>
+                            <td>Santa Angelina</td>
+                            <td>Araraquara</td>
+                            <td>SP</td>
+                            <td>1000</td>
+                            <td>smlcaitano@gmail.com</td>
+                            <td>(16) 99779-2512</td>
+                        </tr>
+                        <tr>
+                            <td>000004</td>
+                            <td>Jhennifer Paola</td>
+                            <td>10/05/2001</td>
+                            <td>Feminino</td>
+                            <td>São Paulo</td>
+                            <td>000000000</td>
+                            <td>000000000</td>
+                            <td>NÃO</td>
+                            <td>3.000,00</td>
+                            <td>Ativo</td>
+                            <td>10-10-2020</td>
+                            <td></td>
+                            <td>14802-020</td>
+                            <td>Avenida Joaquim de Souza Pinheiro</td>
+                            <td>Santa Angelina</td>
+                            <td>Araraquara</td>
+                            <td>SP</td>
+                            <td>1000</td>
+                            <td>smlcaitano@gmail.com</td>
+                            <td>(16) 99779-2512</td>
+                        </tr>
+                        <tr>
+                            <td>000</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>000</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>000</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>000</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>000</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>000</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>000</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>000</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>000</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>000</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>000</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>000</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>000</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>000</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>000</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </main>
+
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12 sidebar sidebar-content">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-4 calendar">
+                <header id="header-calendar">
+                    <h2 class="frame-month" id="month"></h2>
+                    <a class="btn-ant" id="btn_ant"><i class="fas fa-chevron-left"></i></a>
+                    <a class="btn-pro" id="btn_prev"><i class="fas fa-chevron-right"></i></a>
+                </header>
+                <table id="table-calendar">
+                    <thead id="titulo-tabela-calendario">
+                        <tr>
+                            <td id="sunday">Dom</td>
+                            <td>Seg</td>
+                            <td>Ter</td>
+                            <td>Qua</td>
+                            <td>Qui</td>
+                            <td>Sex</td>
+                            <td>Sab</td>
+                        </tr>
+                    </thead>
+                    <tbody id="dias">
+                        <tr>
+                            <td id="sunday">1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>7</td>
+                        </tr>
+                        <tr>
+                            <td id="sunday">1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>7</td>
+                        </tr>
+                        <tr>
+                            <td id="sunday">1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>7</td>
+                        </tr>
+                        <tr>
+                            <td id="sunday">1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>7</td>
+                        </tr>
+                        <tr>
+                            <td id="sunday">1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>7</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <footer class="footer-calendario">
+                    <h2 class="ano-calendario" id="ano"></h2>
+                </footer>
+            </div>
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-8 sidebar-frame-options">
+                <a href="../cadastrarFuncionario/index.html" id="sidebar-options" title="Cadastrar funcionário">
+                    Cadastrar Func.
+                </a>
+
+                <a href="#" id="sidebar-options" title="Listar funcionário">
+                    <div class="status-pag">on</div>
+                    Listar Funcionários
+                </a>
+
+                <a href="../alterarCadastro/index.html" id="sidebar-options" title="Alterar cadastro">
+                    Alterar Cadastro
+                </a>
+
+                <a href="../../../ajuda/emConstrucao.html" id="sidebar-option-requisition" title="Requisitar o gerente">
+                    Requisitar o gerente
+                </a>
+
+                <a href="/logout" id="sidebar-option-exit" title="Sair">
+                    SAIR
+                </a>
+
+                <a href="../../../ajuda/index.html" id="help" title="Precisa de ajuda?">
+                    Precisa de ajuda?
+                </a>
+            </div>
+        </div>
+
+        <footer class="footer-main">
+            <small>Copyright © Hotel Beira Mar. Todos os direitos reservados.</small>
+            <a href="#">Blog</a>
+            <a href="#">Facebook</a>
+            <a href="#">Twitter</a>
+            <a href="#">Linkedin</a>
+            <a href="#">Instagram</a>
+        </footer>
+    </div>
+</body>
+
+<script type="text/javascript" src="script/calendario.js"></script>
+
+</html>

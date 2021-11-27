@@ -1,0 +1,645 @@
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alterar cadastro do hóspede</title>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Inter:400,800,900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+    <link rel="stylesheet" href="css/style-calendario.css">
+    <link rel="stylesheet" href="css/style-hospede-alterar-cadastro.css">
+    <script type="text/javascript" src="script/calendario.js"></script>
+    <script type="text/javascript" src="script/validarCep.js"></script>
+</head>
+
+<body>
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 container">
+
+        <nav class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 nav-content-area">
+            <a href="#" class="link-item-navbar">
+                <div class="status-pag">on</div>
+                <div>Hóspedes</div>
+            </a>
+            <a href="../../reservas/index.html" class="link-item-navbar">
+                Reservas
+            </a>
+            <a href="../../quartos/index.html" class="link-item-navbar">
+                Quartos
+            </a>
+        </nav>
+
+        <main class="main-content-area">
+            <form class="form-group-main">
+                <h1 class="frame-title">Informações do hóspede</h1>
+                <div class=" col-lg-12 col-md-12 col-sm-12 col-12 frame-content-informations-guest">
+
+                    <!-- Campo da foto do perfil -->
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 col-2 form-camp-photo">
+                        <div>
+                            <img title="Foto de perfil do funcionário" id="photo-profile"
+                                alt=" Adc. foto de perfil" src="img/perfil.png" alt="Foto de perfil do funcionário"
+                                draggable="false">
+                            <div class="frame-content-button">
+                                <button id="adicionar" title="Adicionar" alt="Adicionar">Adicionar</button>
+                                <button id="remover" title="Remover" alt="Remover">Remover</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 col-10 frame-content-informations">
+                        <div class="row frame-rows-content">
+                            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2">
+                                <label for="id">
+                                    Id
+                                </label>
+                                <div class="form-search ">
+                                    <input class="search-number-bedroom form-control" title="nº Identificador do funcionário"
+                                        alt="Numéro do quarto" placeholder="ex: 000" type="number" id="id" required>
+                                    <button type="submit" title="Buscar">
+                                        <i class="fas fa-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 col-4">
+                                <label for="nome">
+                                    <span style="color: #0449c9; size: 30px; font-weight: bold;">*</span>
+                                    Nome completo
+                                </label>
+                                <input name="nome" type="text" id="nome" title="Nome Completo do funcionário"
+                                    alt="Nome Completo" class="form-control" placeholder="ex: Samuel Caitano da Silva"
+                                    spellcheck="true" autocapitalize="on" autocomplete="on" maxlength="40" required>
+                            </div>
+
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 col-2">
+                                <label for="dataNascimento">
+                                    <span style="color: #0449c9; size: 30px; font-weight: bold;">*</span>
+                                    Nascimento
+                                </label>
+                                <input name="dataNascimento" type="date" id="dataNascimento" title="Data de Nascimento"
+                                    alt="Data de Nascimento" class="form-control" required>
+                            </div>
+
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 col-2">
+                                <label for="sexo">
+                                    <span style="color: #0449c9; size: 30px; font-weight: bold;">*</span>
+                                    Sexo
+                                    <i class="fas fa-angle-down"></i>
+                                </label>
+                                <select name="sexo" title="Sexo" id="sexo" class="form-control" required>
+                                    <option value="">--</option>
+                                    <option value="M">MASCULINO</option>
+                                    <option value="F">FEMININO</option>
+                                    <option value="O">OUTRO</option>
+                                </select>
+                            </div>
+                            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2">
+                                <label for="nacionalidade">
+                                    <span style="color: #0449c9; size: 30px; font-weight: bold;">*</span>
+                                    Nacional.
+                                    <i class="fas fa-angle-down"></i>
+                                </label>
+                                <select title="Nacionalidade" id="nacionalidade" class="form-control" required>
+                                    <option value="">--</option>
+                                    <option value="">Afeganistão</option>
+                                    <option value="">África do Sul</option>
+                                    <option value="">Albânia</option>
+                                    <option value="">Alemanha</option>
+                                    <option value="">Andorra</option>
+                                    <option value="">Angola</option>
+                                    <option value="">Antiga e Barbuda</option>
+                                    <option value="">Arábia Saudita</option>
+                                    <option value="">Argélia</option>
+                                    <option value="">Argentina</option>
+                                    <option value="">Arménia</option>
+                                    <option value="">Austrália</option>
+                                    <option value="">Áustria</option>
+                                    <option value="">Azerbaijão</option>
+                                    <option value="">Bahamas</option>
+                                    <option value="">Bangladexe</option>
+                                    <option value="">Barbados</option>
+                                    <option value="">Barém</option>
+                                    <option value="">Bélgica</option>
+                                    <option value="">Belize</option>
+                                    <option value="">Benim</option>
+                                    <option value="">Bielorrússia</option>
+                                    <option value="">Bolívia</option>
+                                    <option value="">Bósnia e Herzegovina</option>
+                                    <option value="">Botsuana</option>
+                                    <option value="">Brasil</option>
+                                    <option value="">Brunei</option>
+                                    <option value="">Bulgária</option>
+                                    <option value="">Burquina Faso</option>
+                                    <option value="">Burúndi</option>
+                                    <option value="">Butão</option>
+                                    <option value="">Cabo Verde</option>
+                                    <option value="">Camarões</option>
+                                    <option value="">Camboja</option>
+                                    <option value="">Canadá</option>
+                                    <option value="">Catar</option>
+                                    <option value="">Cazaquistão</option>
+                                    <option value="">Chade</option>
+                                    <option value="">Chile</option>
+                                    <option value="">China</option>
+                                    <option value="">Chipre</option>
+                                    <option value="">Colômbia</option>
+                                    <option value="">Comores</option>
+                                    <option value="">Congo-Brazzaville</option>
+                                    <option value="">Coreia do Norte</option>
+                                    <option value="">Coreia do Sul</option>
+                                    <option value="">Cosovo</option>
+                                    <option value="">Costa do Marfim</option>
+                                    <option value="">Costa Rica</option>
+                                    <option value="">Croácia</option>
+                                    <option value="">Cuaite</option>
+                                    <option value="">Cuba</option>
+                                    <option value="">Dinamarca</option>
+                                    <option value="">Dominica</option>
+                                    <option value="">Egito</option>
+                                    <option value="">Emirados Árabes Unidos</option>
+                                    <option value="">Equador</option>
+                                    <option value="">Eritreia</option>
+                                    <option value="">Eslováquia</option>
+                                    <option value="">Eslovénia</option>
+                                    <option value="">Espanha</option>
+                                    <option value="">Essuatíni</option>
+                                    <option value="">Estado da Palestina</option>
+                                    <option value="">Estados Unidos</option>
+                                    <option value="">Estónia</option>
+                                    <option value="">Etiópia</option>
+                                    <option value="">Fiji</option>
+                                    <option value="">Filipinas</option>
+                                    <option value="">Finlândia</option>
+                                    <option value="">França</option>
+                                    <option value="">Gabão</option>
+                                    <option value="">Gâmbia</option>
+                                    <option value="">Gana</option>
+                                    <option value="">Geórgia</option>
+                                    <option value="">Granada</option>
+                                    <option value="">Grécia</option>
+                                    <option value="">Guatemala</option>
+                                    <option value="">Guiana</option>
+                                    <option value="">Guiné</option>
+                                    <option value="">Guiné Equatorial</option>
+                                    <option value="">Guiné-Bissau</option>
+                                    <option value="">Haiti</option>
+                                    <option value="">Honduras</option>
+                                    <option value="">Hungria</option>
+                                    <option value="">Iémen</option>
+                                    <option value="">Ilhas Marechal</option>
+                                    <option value="">Índia</option>
+                                    <option value="">Indonésia</option>
+                                    <option value="">Irão</option>
+                                    <option value="">Iraque</option>
+                                    <option value="">Irlanda</option>
+                                    <option value="">Islândia</option>
+                                    <option value="">Israel</option>
+                                    <option value="">Itália</option>
+                                    <option value="">Jamaica</option>
+                                    <option value="">Japão</option>
+                                    <option value="">Jibuti</option>
+                                    <option value="">Jordânia</option>
+                                    <option value="">Laus</option>
+                                    <option value="">Lesoto</option>
+                                    <option value="">Letónia</option>
+                                    <option value="">Líbano</option>
+                                    <option value="">Libéria</option>
+                                    <option value="">Líbia</option>
+                                    <option value="">Listenstaine</option>
+                                    <option value="">Lituânia</option>
+                                    <option value="">Luxemburgo</option>
+                                    <option value="">Macedónia do Norte</option>
+                                    <option value="">Madagáscar</option>
+                                    <option value="">Malásia</option>
+                                    <option value="">Maláui</option>
+                                    <option value="">Maldivas</option>
+                                    <option value="">Mali</option>
+                                    <option value="">Malta</option>
+                                    <option value="">Marrocos</option>
+                                    <option value="">Maurícia</option>
+                                    <option value="">Mauritânia</option>
+                                    <option value="">México</option>
+                                    <option value="">Mianmar</option>
+                                    <option value="">Micronésia</option>
+                                    <option value="">Moçambique</option>
+                                    <option value="">Moldávia</option>
+                                    <option value="">Mónaco</option>
+                                    <option value="">Mongólia</option>
+                                    <option value="">Montenegro</option>
+                                    <option value="">Namíbia</option>
+                                    <option value="">Nauru</option>
+                                    <option value="">Nepal</option>
+                                    <option value="">Nicarágua</option>
+                                    <option value="">Níger</option>
+                                    <option value="">Nigéria</option>
+                                    <option value="">Noruega</option>
+                                    <option value="">Nova Zelândia</option>
+                                    <option value="">Omã</option>
+                                    <option value="">Países Baixos</option>
+                                    <option value="">Palau</option>
+                                    <option value="">Panamá</option>
+                                    <option value="">Papua Nova Guiné</option>
+                                    <option value="">Paquistão</option>
+                                    <option value="">Paraguai</option>
+                                    <option value="">Peru</option>
+                                    <option value="">Polónia</option>
+                                    <option value="">Portugal</option>
+                                    <option value="">Quénia</option>
+                                    <option value="">Quirguistão</option>
+                                    <option value="">Quiribáti</option>
+                                    <option value="">Reino Unido</option>
+                                    <option value="">República Centro-Africana</option>
+                                    <option value="">República Checa</option>
+                                    <option value="">República Democrática do Congo</option>
+                                    <option value="">República Dominicana</option>
+                                    <option value="">Roménia</option>
+                                    <option value="">Ruanda</option>
+                                    <option value="">Rússia</option>
+                                    <option value="">Salomão</option>
+                                    <option value="">Salvador</option>
+                                    <option value="">Samoa</option>
+                                    <option value="">Santa Lúcia</option>
+                                    <option value="">São Cristóvão e Neves</option>
+                                    <option value="">São Marinho</option>
+                                    <option value="">São Tomé e Príncipe</option>
+                                    <option value="">São Vicente e Granadinas</option>
+                                    <option value="">Seicheles</option>
+                                    <option value="">Senegal</option>
+                                    <option value="">Serra Leoa</option>
+                                    <option value="">Sérvia</option>
+                                    <option value="">Singapura</option>
+                                    <option value="">Síria</option>
+                                    <option value="">Somália</option>
+                                    <option value="">Sri Lanca</option>
+                                    <option value="">Sudão</option>
+                                    <option value="">Sudão do Sul</option>
+                                    <option value="">Suécia</option>
+                                    <option value="">Suíça</option>
+                                    <option value="">Suriname</option>
+                                    <option value="">Tailândia</option>
+                                    <option value="">Taiuã</option>
+                                    <option value="">Tajiquistão</option>
+                                    <option value="">Tanzânia</option>
+                                    <option value="">Timor-Leste</option>
+                                    <option value="">Togo</option>
+                                    <option value="">Tonga</option>
+                                    <option value="">Trindade e Tobago</option>
+                                    <option value="">Tunísia</option>
+                                    <option value="">Turcomenistão</option>
+                                    <option value="">Turquia</option>
+                                    <option value="">Tuvalu</option>
+                                    <option value="">Ucrânia</option>
+                                    <option value="">Uganda</option>
+                                    <option value="">Uruguai</option>
+                                    <option value="">Usbequistão</option>
+                                    <option value="">Vanuatu</option>
+                                    <option value="">Vaticano</option>
+                                    <option value="">Venezuela</option>
+                                    <option value="">Vietname</option>
+                                    <option value="">Zâmbia</option>
+                                    <option value="">Zimbábue</option>
+                                </select>
+                            </div>  
+                        </div>
+
+                        
+
+                        <!-- Linha 3 das informações do hóspede -->
+                        <div class="row frame-rows-content">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 col-3">
+                                <label for="cpf">
+                                    CPF
+                                </label>
+                                <input name="cpf" type="text" id="cpf" title="Cadastro de Pessoas Físicas" alt="CPF"
+                                    class="form-control" maxlength="14" placeholder="ex: 000.000.000-00"
+                                    autocomplete="off">
+                            </div>
+
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 col-3">
+                                <label for="rg">
+                                    <span style="color: #0449c9; size: 30px; font-weight: bold;">*</span>
+                                    RG
+                                </label>
+                                <input name="rg" type="text" id="rg" title="Registro Geral" alt="RG" maxlength="14"
+                                    class="form-control" placeholder="ex: 000000000" autocomplete="off" required>
+                            </div>
+
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 col-4">
+                                <label for="orgaoEmissor">
+                                    <span style="color: #0449c9; size: 30px; font-weight: bold;">*</span>
+                                    Orgão Emissor
+                                    <i class="fas fa-angle-down"></i>
+                                </label>
+                                <select name="orgaoEmissor" id="orgaoEmissor" title="Orgão Emissor do RG"
+                                    class="form-control" required>
+                                    <option value="">--</option>
+                                    <option value="">SSP - Secretaria de Segurança Pública</option>
+                                    <option value="">Organismos Militares</option>
+                                    <option value="">COMAER - Comando da Aeronáutica</option>
+                                    <option value="">CEX - Comando do Exército</option>
+                                    <option value="">Ministério da Marinha</option>
+                                    <option value="">PF - Polícia Federal</option>
+                                    <option value="">CLA - Carteira de Identidade Classista</option>
+                                    <option value="">CRA - Conselho Regional de Administração</option>
+                                    <option value="">Conselho Regional de Assist. Social</option>
+                                    <option value="">CRB - Conselho Regional de Biblioteconomia</option>
+                                    <option value="">CRC - Conselho Regional de Contabilidade</option>
+                                    <option value="">CRECI - Conselho Regional de Corretores Imóveis</option>
+                                    <option value="">COREN - Conselho Regional de Enfermagem</option>
+                                    <option value="">CREA - Conselho Regional de Engenharia e Agronomia</option>
+                                    <option value="">CONRE - Conselho Regional de Estatística</option>
+                                    <option value="">CRF - Conselho Regional de Farmácia</option>
+                                    <option value="">CREFITO - Conselho Regional de Fisioterapia Terapia Ocupacional
+                                    </option>
+                                    <option value="">CRM - Conselho Regional de Medicina</option>
+                                    <option value="">CRMV - Conselho Regional de Medicina Veterinária</option>
+                                    <option value="">OMB - Ordem dos Musicos do Brasil</option>
+                                    <option value="">CRN - Conselho Regional de Nutrição</option>
+                                    <option value="">CRO - Conselho Regional de Odontologia</option>
+                                    <option value="">CONRERP - Conselho Regional de Profissionais de Relações Públicas
+                                    </option>
+                                    <option value="">CRP - Conselho Regional de Psicologia</option>
+                                    <option value="">CRQ - Conselho Regional de Química</option>
+                                    <option value="">CORE - Conselho Regional de Representantes Comerciais</option>
+                                    <option value="">OAB - Ordemdos Advogados do Brasil</option>
+                                    <option value="">Outros Emissores</option>
+                                    <option value="">Documento Estrangeiro</option>
+                                </select>
+                            </div>
+
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 col-2" id="UFOrgaoEmissor">
+                                <label for="UfEmissor">
+                                    <span style="color: #0449c9; size: 30px; font-weight: bold;">*</span>
+                                    UF
+                                    <i class="fas fa-angle-down"></i>
+                                </label>
+                                <select name="UfEmissor" id="UfEmissor" title="UF Emissor do RG" class="form-control"
+                                    required>
+                                    <option value="">--</option>
+                                    <option value="AC">AC</option>
+                                    <option value="AL">AL</option>
+                                    <option value="AM">AM</option>
+                                    <option value="AP">AP</option>
+                                    <option value="BA">BA</option>
+                                    <option value="CE">CE</option>
+                                    <option value="DF">DF</option>
+                                    <option value="ES">ES</option>
+                                    <option value="GO">GO</option>
+                                    <option value="MA">MA</option>
+                                    <option value="MG">MG</option>
+                                    <option value="MS">MS</option>
+                                    <option value="MT">MT</option>
+                                    <option value="PA">PA</option>
+                                    <option value="PB">PB</option>
+                                    <option value="PE">PE</option>
+                                    <option value="PI">PI</option>
+                                    <option value="PR">PR</option>
+                                    <option value="RJ">RJ</option>
+                                    <option value="RN">RN</option>
+                                    <option value="RO">RO</option>
+                                    <option value="RR">RR</option>
+                                    <option value="RS">RS</option>
+                                    <option value="SC">SC</option>
+                                    <option value="SE">SE</option>
+                                    <option value="SP">SP</option>
+                                    <option value="TO">TO</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Linha 4 das informações do hóspede -->
+                        <div class="row frame-rows-content">
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 col-2">
+                                <label for="PcD">
+                                    <span style="color: #0449c9; size: 30px; font-weight: bold;">*</span>
+                                    PcD
+                                    <i class="fas fa-angle-down"></i>
+                                </label>
+                                <select name="PcD" id="PcD" title="Pessoa com Deficiência" alt="Pessoa com Deficiência"
+                                    class="form-control" required>
+                                    <option value="">--</option>
+                                    <option value="">NÃO</option>
+                                    <option value="">SIM</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 col-10">
+                                <label for="necessidadeEspecial">
+                                    Necessidade especial
+                                </label>
+                                <input name="necessidadeEspecial" id="necessidadeEspecial"
+                                    title="Descrição da Necessidade especial" alt="Necessidade especial" type="text"
+                                    class="form-control" spellcheck="true" maxlength="90">
+                            </div>
+                        </div>
+                    </div>                    
+                </div>
+
+                <!-- Informações de endereço -->
+                <hr style="height: 10px;">
+                <!-- <h1 class="frame-title-guest">Informações de endereço</h1> -->
+                <div class="row frame-rows-content">
+
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 col-2">
+                        <label for="cep">
+                            <span style="color: #0449c9; size: 30px; font-weight: bold;">*</span>
+                            CEP
+                        </label>
+                        <div class="form-search ">
+                            <input name="cep" type="text" id="cep" title="Código de Endereçamento Postal" alt="CEP"
+                                class="form-control" maxlength="9" onblur="pesquisacep(this.value);" min="0"
+                                autocomplete="on" placeholder="ex: 14802-000" required />
+                            <button type="submit" title="Buscar">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 col-4">
+                        <label for="rua">
+                            Rua
+                        </label>
+                        <input name="rua" type="text" id="rua" title="Rua" alt="Rua" class="form-control"
+                            placeholder="ex: Avenida Joaquim de Souza Pinheiro" size="60" spellcheck="true" />
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 col-2">
+                        <label>Bairro</label>
+                        <input name="bairro" type="text" id="bairro" title="bairro" alt="Bairro" class="form-control"
+                            size="40" />
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 col-2">
+                        <label for="cidade">
+                            Cidade
+                        </label>
+                        <input name="cidade" type="text" id="cidade" title="Cidade" alt="Cidade" class="form-control"
+                            size="40" />
+                    </div>
+                    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 col-1">
+                        <label for="uf">
+                            UF
+                        </label>
+                        <input name="uf" type="text" id="uf" class="form-control" size="2" />
+                    </div>
+                    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 col-1">
+                        <label for="numeroEndereco">
+                            <span style="color: #0449c9; size: 30px; font-weight: bold;">*</span>
+                            Núm
+                        </label>
+                        <input name="numeroEndereco" type="number" id="numeroEndereco" title="Numéro do endereço"
+                            alt="Numéro" class="form-control" placeholder="1234" onkeypress="return event.charCode >=48"
+                            min="0" max="100000" step="any" required>
+                    </div>
+                </div>
+
+                <!-- Informações de contato -->
+                <hr style="height: 10px;">
+                <!-- <h1 class="frame-title-guest">Informações de contato</h1> -->
+                <div class="row frame-rows-content">
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 col-3">
+                        <label for="email">
+                            E-mail
+                        </label>
+                        <input name="email" type="email" id="email" title="E-mail" alt="Email"  class="form-control"
+                            placeholder="ex: hotelbeiramar@gmail.com" spellcheck="true" autocomplete="on">
+                    </div>
+
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 col-3">
+                        <label for="telefone">
+                            <span style="color: #0449c9; size: 30px; font-weight: bold;">*</span>
+                            Telefone
+                        </label>
+                        <input name="telefone" title="Telefone" alt="Telefone" type="tel" id="telefone"
+                            class="telefone form-control" 
+                            placeholder="ex: (xx)xxxxx-xxxx" maxlength="15" autocomplete="on" required>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-6">
+                        <label for="observacao">
+                            Obs
+                        </label>
+                        <input title="Observação" alt="Observação" type="text" name="observacao" class="form-control"
+                            id="observacao" spellcheck="true" autocomplete="off">
+                    </div>
+                </div>
+                <div id="submit-button-form">
+                    <button type="submit" id="gravar" title="Gravar">Gravar</button>
+                </div>
+            </form>
+        </main>
+
+        <div class="sidebar sidebar-content">
+            <div class="calendar">
+                <header id="header-calendar">
+                    <h2 class="frame-month" id="month"></h2>
+                    <a class="btn-ant" id="btn_ant"><i class="fas fa-chevron-left"></i></a>
+                    <a class="btn-pro" id="btn_prev"><i class="fas fa-chevron-right"></i></a>
+                </header>
+                <table id="table-calendar">
+                    <thead id="titulo-tabela-calendario">
+                        <tr>
+                            <td id="sunday">Dom</td>
+                            <td>Seg</td>
+                            <td>Ter</td>
+                            <td>Qua</td>
+                            <td>Qui</td>
+                            <td>Sex</td>
+                            <td>Sab</td>
+                        </tr>
+                    </thead>
+                    <tbody id="dias">
+                        <tr>
+                            <td id="sunday">1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>7</td>
+                        </tr>
+                        <tr>
+                            <td id="sunday">1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>7</td>
+                        </tr>
+                        <tr>
+                            <td id="sunday">1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>7</td>
+                        </tr>
+                        <tr>
+                            <td id="sunday">1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>7</td>
+                        </tr>
+                        <tr>
+                            <td id="sunday">1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>7</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <footer class="footer-calendario">
+                    <h2 class="ano-calendario" id="ano"></h2>
+                </footer>
+            </div>
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12 sidebar-frame-options">
+                    <a href="../cadastrarHospede/index.html" id="sidebar-options"  title="Cadastrar hópedes">
+                        <div>Cadastrar hópedes</div>
+                    </a>
+
+                    <a href="../listarHospedes/index.html" id="sidebar-options" title="Listar hópedes">
+                        Listar hópedes
+                    </a>
+
+                    <a href="#" id="sidebar-options" title="Alterar cadastro">
+                        <div class="status-pag">on</div>
+                        Alterar Cadastro
+                    </a>
+
+                    <a href="../../../ajuda/emConstrucao.html" id="sidebar-option-requisition" title="Requisitar o gerente">
+                        Requisitar o gerente
+                    </a>
+
+                    <a href="/logout" id="sidebar-option-exit" title="SAIR">
+                        SAIR
+                    </a>
+
+                    <a href="../../../ajuda/index.html" id="help" title="Precisa de ajuda?">
+                        Precisa de ajuda?
+                    </a>
+            </div>
+        </div>
+
+        <footer class="footer-main">
+            <small>Copyright © Hotel Beira Mar. Todos os direitos reservados.</small>
+            <a href="#">Blog</a>
+            <a href="#">Facebook</a>
+            <a href="#">Twitter</a>
+            <a href="#">Linkedin</a>
+            <a href="#">Instagram</a>
+        </footer>
+
+    </div>
+</body>
+
+
+
+</html>
